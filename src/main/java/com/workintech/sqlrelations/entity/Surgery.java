@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -22,4 +23,16 @@ public class Surgery {
 
     @Column(name = "doctor_id")
     private long doctorId;
+    
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
+    private Doctor doctor;
+    
+    @ManyToOne
+    @JoinColumn(name = "nurse_id", insertable = false, updatable = false)
+    private Nurse nurse;
+    
+    @ManyToOne
+    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
+    private Patient patient;
 }

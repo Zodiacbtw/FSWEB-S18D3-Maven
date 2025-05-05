@@ -20,4 +20,12 @@ public class Operation {
 
     @Column(name = "doctor_id")
     private long doctorId;
+    
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
+    private Doctor doctor;
+    
+    @ManyToOne
+    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
+    private Patient patient;
 }
